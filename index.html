@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>YourLiteraryWorld</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <img src="imgs/logo.jpeg" width="35" height="35" alt="Logo" id="logo">
+            YourLiteraryWorld
+        </div>
+
+        <div class="menu" onclick="toggleMenu()">☰</div>
+    </header>
+
+    <!-- DROPDOWN MENU -->
+    <div id="navMenu" class="nav-menu hidden">
+        <div onclick="goHome()">🏠 Home</div>
+        <div onclick="showAbout()">ℹ️ About Us</div>
+        <div onclick="showSupport()">💖 Support Me</div>
+    </div>
+
+    <!-- HOME PAGE -->
+    <section id="homePage" class="dark-home">
+
+        <!-- HERO -->
+        <div class="hero">
+
+            <div class="hero-text">
+                <div class="tag">✨ Your Dream. Our Guidance.</div>
+
+                <h1 class="glow-text">
+                    Crack UGC NET <br>
+                    <span>English Literature</span><br>
+                    Like Never Before
+                </h1>
+
+                <p>
+                    Smart strategies. Expert guidance. Quality content.
+                    Everything you need to crack your exam with confidence.
+                </p>
+
+                <!-- <button class="start-btn glow-btn" onclick="startExam()">
+                Start Exam →
+            </button> -->
+            </div>
+
+            <!-- <div class="hero-visual">
+            <div class="glass-card one">Knowledge</div>
+            <div class="glass-card two">Preparation</div>
+            <div class="glass-card three">Success</div>
+        </div> -->
+
+        </div>
+
+        <!-- FEATURES -->
+        <div class="features">
+            <div><b>👨‍🏫 Mentors</b></div>
+            <div><b>🎯 Focus</b></div>
+            <div><b>📈 Results</b></div>
+            <div><b>🏆 Success</b></div>
+
+        </div>
+
+        <!-- CARDS -->
+        <div class="cards">
+            <br>
+            <div class="card purple glow-card">
+                <h4><b>01</b></h4>
+                <h2>Check out the <span id="course">Course</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→</h2>
+                <p>Complete coverage of Paper 1, Paper 2 and Literary Theory. Live classes, notes, PYQs & more.</p>
+            </div>
+
+            <!-- onclick="startExam()" -->
+            <div class="card gold glow-card" onclick="startExam()">
+                <h4><b>02</b></h4>
+                <h2>Premium <span id="mock">Mock Test</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→</h2>
+                <p>Real exam experience + Details analytics.Topic-wise Mock Tests.
+                    Know where you stand.</p>
+            </div>
+
+            <div class="card bluee glow-card">
+                <h4><b>03</b></h4>
+                <h2>Free <span id="resource">Resources</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→</h2>
+                <p>All important content, PYQs, e-books and more—absolutely free.</p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- TIMER -->
+    <div id="timerBar" class="hidden">
+        <div id="timer">06:00</div>
+    </div>
+
+    <!-- QUIZ PAGE -->
+    <section id="quizPage" class="hidden">
+        <pre class="watermark1">
+            <br>
+        YourLiteraryWorld
+            <br><br>
+            YourLiteraryWorld  
+            <br><br>  
+            YourLiteraryWorld 
+            <br><br>  
+    YourLiteraryWorld       YourLiteraryWorld
+            <br><br>  
+            YourLiteraryWorld
+            <br><br>  
+    YourLiteraryWorld       YourLiteraryWorld
+            <br><br>  
+            YourLiteraryWorld
+            <br><br>  
+    YourLiteraryWorld       YourLiteraryWorld
+            <br><br>  
+            YourLiteraryWorld
+            <br><br>  
+    YourLiteraryWorld       YourLiteraryWorld
+            <br><br>  
+YourLiteraryWorld             YourLiteraryWorld
+            
+        </pre>  
+
+        <div id="questionNumber"></div>
+        <div id="questionContainer"></div>
+
+    </section>
+
+    <!-- BOTTOM NAV -->
+
+    <div class="bottom-nav hidden">
+        <div class="nav-row">
+            <button onclick="prevQuestion()"><b>Prev</b></button>
+            <button onclick="markRevisit()" id="markBtn"><b>Mark</b></button>
+            <button onclick="nextQuestion()" class="next-btn"><b>Save & Next</b></button>
+        </div>
+
+        <div class="nav-row">
+            <button class="submit-btn" onclick="submitQuiz()"><b>Submit</b></button>
+        </div>
+    </div>
+
+    <!-- ✅ PALETTE MOVED HERE -->
+    <div id="palette" class="hidden"></div>
+
+
+    <!-- RESULT -->
+    <section id="resultPage" class="hidden">
+        <h2>Result</h2>
+        <canvas id="chart"></canvas>
+        <h3 id="scoreText"></h3>
+        <button onclick="showAnswerKey()">Review Answers</button>
+    </section>
+
+    <!-- ANSWER KEY -->
+    <section id="answerKeyPage" class="hidden">
+        <pre class="watermark1">
+            <br>
+        YourLiteraryWorld
+            <br><br>
+            YourLiteraryWorld  
+            <br><br>  
+            YourLiteraryWorld 
+            <br><br>  
+    YourLiteraryWorld       YourLiteraryWorld
+            <br><br>  
+            YourLiteraryWorld
+            <br><br>  
+    YourLiteraryWorld       YourLiteraryWorld
+            <br><br>  
+            YourLiteraryWorld
+            <br><br>  
+    YourLiteraryWorld       YourLiteraryWorld
+            <br><br>  
+            YourLiteraryWorld
+            <br><br>  
+    YourLiteraryWorld       YourLiteraryWorld
+            <br><br>  
+*** YourLiteraryWorld
+        </pre> 
+        <pre class="watermark2">
+            <br>
+        YourLiteraryWorld 
+            <br><br>
+            YourLiteraryWorld        YourLiteraryWorld
+            <br><br>  
+            YourLiteraryWorld       YourLiteraryWorld 
+            <br><br>  
+    YourLiteraryWorld       YourLiteraryWorld
+            <br><br>  
+            YourLiteraryWorld
+            <br><br>  
+    YourLiteraryWorld       YourLiteraryWorld
+            <br><br>  
+            YourLiteraryWorld
+            <br><br>  
+    YourLiteraryWorld       YourLiteraryWorld
+            <br><br>  
+            YourLiteraryWorld
+            <br><br>  
+    YourLiteraryWorld       YourLiteraryWorld
+            <br><br>  
+YourLiteraryWorld
+        </pre>
+        <pre class="watermark3">
+            <br>
+        YourLiteraryWorld 
+            <br><br>
+            YourLiteraryWorld        YourLiteraryWorld
+            <br><br>  
+            YourLiteraryWorld       YourLiteraryWorld 
+            <br><br>  
+    YourLiteraryWorld       YourLiteraryWorld
+            <br><br>  
+            YourLiteraryWorld
+            <br><br>  
+    YourLiteraryWorld       YourLiteraryWorld
+            <br><br>  
+            YourLiteraryWorld
+            <br><br>  
+    YourLiteraryWorld       YourLiteraryWorld
+            <br><br>  
+            YourLiteraryWorld
+            <br><br>  
+    YourLiteraryWorld       YourLiteraryWorld
+            <br><br>  
+YourLiteraryWorld
+        </pre>
+        <pre class="watermark4">
+            <br>
+        YourLiteraryWorld 
+            <br><br>
+            YourLiteraryWorld        YourLiteraryWorld
+            <br><br>  
+            YourLiteraryWorld       YourLiteraryWorld 
+            <br><br>  
+    YourLiteraryWorld       YourLiteraryWorld
+            <br><br>  
+            YourLiteraryWorld
+            <br><br>  
+    YourLiteraryWorld       YourLiteraryWorld
+            <br><br>  
+            YourLiteraryWorld
+            <br><br>  
+    YourLiteraryWorld       YourLiteraryWorld
+            <br><br>  
+            YourLiteraryWorld
+            <br><br>  
+    YourLiteraryWorld       YourLiteraryWorld
+            <br><br>  
+YourLiteraryWorld
+        </pre>
+        <pre class="watermark5">
+            <br>
+        YourLiteraryWorld 
+            <br><br>
+            YourLiteraryWorld        YourLiteraryWorld
+            <br><br>  
+            YourLiteraryWorld       YourLiteraryWorld 
+            <br><br>  
+    YourLiteraryWorld       YourLiteraryWorld
+            <br><br>  
+            YourLiteraryWorld
+            <br><br>  
+    YourLiteraryWorld       YourLiteraryWorld
+            <br><br>  
+            YourLiteraryWorld
+            <br><br>  
+    YourLiteraryWorld       YourLiteraryWorld
+            <br><br>  
+            YourLiteraryWorld
+            <br><br>  
+    YourLiteraryWorld       YourLiteraryWorld
+            <br><br>  
+YourLiteraryWorld
+        </pre>
+        <pre class="watermark6">
+            <br>
+        YourLiteraryWorld 
+            <br><br>
+            YourLiteraryWorld        YourLiteraryWorld
+            <br><br>  
+            YourLiteraryWorld       YourLiteraryWorld 
+            <br><br>  
+    YourLiteraryWorld       YourLiteraryWorld
+            <br><br>  
+            YourLiteraryWorld
+            <br><br>  
+    YourLiteraryWorld       YourLiteraryWorld
+            <br><br>  
+            YourLiteraryWorld
+            <br><br>  
+    YourLiteraryWorld       YourLiteraryWorld
+            <br><br>  
+            YourLiteraryWorld
+            <br><br>  
+    YourLiteraryWorld       YourLiteraryWorld
+            <br><br>  
+YourLiteraryWorld
+        </pre>
+        
+        <h2>Answer Review</h2>
+        <div id="answerKey"></div>
+    </section>
+
+    <!-- FOOTER (HOME ONLY) -->
+    <footer id="homeFooter">
+
+        <div class="footer-left">
+            <h3>YourLiteraryWorld</h3>
+            <pre>
+Literature is not just words.
+It's a way to understand the world.
+            </pre>
+            <hr style="border: none; height: 2px; background-color: rgb(95, 17, 95);">
+            <div class="footer-right">
+                <a href="https://youtube.com/@yourliteraryworld?si=eEc-gzI8SRbwPqhl" target="_blank"><img src="imgs/youtube.png"></a>
+                <a href="https://instagram.com/yourliteraryworld?igshid=YmMyMTA2M2Y=" target="_blank"><img src="imgs/instagram.png"></a>
+                <a href="https://whatsapp.com/channel/0029VbCR5MX90x2vdAtBEU11" target="_blank"><img src="imgs/whatsapp.png"></a>
+                <a href="https://t.me/YourLiteraryWorld" target="_blank"><img src="imgs/telegram.png"></a>
+            </div>
+
+            <pre>
+© 2026 YourLiteraryWorld. All Rights Reserved.
+            </pre>
+        </div>
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
