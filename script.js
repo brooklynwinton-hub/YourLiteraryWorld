@@ -1,6 +1,6 @@
 let questions = [
     {
-        question: "1. According to Saussure, the relationship between the signifier and the signified is fundamentally arbitrary. What is the most significant implication of this principle for the study of language? ",
+        question: "1. According to======================= Saussure, the relationship between the signifier and the signified is fundamentally arbitrary. What is the most significant implication of this principle for the study of language? ",
         options: ["A. It means that words can have multiple meanings depending on context.", "B. It suggests that language is an ever-evolving system and can never be fully documented", "C. It establishes that the connection between a sound and a concept is based on social convention", "D. It proves that all languages must share a common origin."],
         answer: 3 - 1, explanation: ""
     },
